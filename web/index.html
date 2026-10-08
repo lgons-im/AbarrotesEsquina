@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tienda de abarrotes</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- cabecera-->
+    <header class="cab">
+      <div class="cab-fila">
+        <a class="logo" href="#inicio" id="logo">...</a>
+        <div class="buscar">
+          <input
+            id="busqueda"
+            type="search"
+            placeholder="¿Qué buscas hoy?"
+            aria-label="Buscar productos"
+          />
+        </div>
+        <nav>
+          <a href="#catalogo">Catálogo</a
+          ><button id="abrirCarrito" type="button" class="pildora">
+            Carrito (<span id="cuenta">0</span>)
+          </button>
+        </nav>
+      </div>
+      <div id="navCategorias" class="cats"></div>
+    </header>
+
+    <main>
+      <!-- inicio cn datos de empresa -->
+      <section id="inicio" class="banner">
+        <div id="banner" class="banner-in estado">Cargando...</div>
+      </section>
+
+      <!-- catálogo -->
+      <section id="catalogo" class="ancho bloque">
+        <h2><em>Catálogo</em> de productos</h2>
+        <div class="catalogo">
+          <aside class="lateral">
+            <h3>Filtros</h3>
+            <fieldset>
+              <legend>Categoría</legend>
+              <div id="fCategorias"></div>
+            </fieldset>
+            <fieldset>
+              <legend>Rango de precio (S/)</legend>
+              <div class="rango">
+                <input
+                  id="fMin"
+                  type="number"
+                  min="0"
+                  step="0.5"
+                  placeholder="Mín"
+                /><input
+                  id="fMax"
+                  type="number"
+                  min="0"
+                  step="0.5"
+                  placeholder="Máx"
+                />
+              </div>
+            </fieldset>
+            <label class="check"
+              ><input id="fOfertas" type="checkbox" /> Solo ofertas</label
+            >
+            <button id="limpiar" type="button" class="pildora sec">
+              Limpiar filtros
+            </button>
+          </aside>
+          <div>
+            <div class="barra">
+              <p id="contador"></p>
+              <label
+                >Ordenar por
+                <select id="fOrden">
+                  <option value="nombre">Nombre</option>
+                  <option value="precio_asc">Precio: menor a mayor</option>
+                  <option value="precio_desc">Precio: mayor a menor</option>
+                </select>
+              </label>
+            </div>
+            <div id="listaProductos" class="grid"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacto" class="pie"></footer>
+
+    <!-- ventana de detalle producto -->
+    <dialog id="detalle">
+      <div id="detalleCuerpo"></div>
+      <button id="cerrarDetalle" type="button" class="pildora sec">
+        Cerrar
+      </button>
+    </dialog>
+
+    <!-- ventana de carrito -->
+    <dialog id="carrito">
+      <h3>Tu carrito</h3>
+      <div id="carritoCuerpo"></div>
+      <div id="resumen" class="resumen"></div>
+      <button id="vaciar" type="button" class="pildora sec">
+        Vaciar carrito
+      </button>
+      <button id="cerrarCarrito" type="button" class="pildora sec">
+        Seguir comprando
+      </button>
+    </dialog>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
